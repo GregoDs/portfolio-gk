@@ -1,0 +1,8 @@
+.section-page {
+  min-height: 100svh;
+  background: #080808;
+}
+
+.section-page > section {
+  width: 100%;
+}

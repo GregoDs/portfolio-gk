@@ -1,0 +1,95 @@
+.contact-pull {
+  position: relative;
+  flex: none;
+  width: 100vw;
+  height: 100svh;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #f4f4ef 0%, #f4f4ef 22%, rgba(244, 244, 239, 0) 46%),
+    #080808;
+  isolation: isolate;
+}
+
+.contact-pull::before {
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 3;
+  width: 22vw;
+  background: #f4f4ef;
+  content: "";
+}
+
+.contact-pull__field {
+  position: absolute;
+  inset: -7% -10vw -7% 8vw;
+  transform-origin: right center;
+  will-change: transform;
+}
+
+.contact-pull__field::before {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 62% 90% at 26% 53%, rgba(255, 255, 255, 0.32), transparent 52%),
+    linear-gradient(90deg, rgba(244, 244, 239, 0.98) 0%, rgba(246, 212, 230, 0.72) 29%, rgba(219, 131, 12, 0.8) 58%, rgba(58, 14, 5, 0.92) 80%, #080808 96%);
+  content: "";
+}
+
+.contact-pull__layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  transform-origin: right center;
+  will-change: transform, border-radius;
+}
+
+.contact-pull__layer--pink {
+  z-index: 1;
+  right: 44vw;
+  width: 49vw;
+  background:
+    radial-gradient(ellipse 90% 88% at 16% 50%, rgba(255, 255, 255, 0.78), transparent 47%),
+    #f5cadd;
+  filter: blur(18px);
+  opacity: 0.92;
+}
+
+.contact-pull__layer--amber {
+  z-index: 2;
+  right: 18vw;
+  width: 62vw;
+  background:
+    radial-gradient(ellipse 70% 84% at 37% 52%, rgba(247, 204, 112, 0.42), transparent 56%),
+    linear-gradient(90deg, #dc8a11 0%, #a64010 70%, rgba(44, 10, 4, 0.96) 100%);
+  filter: blur(15px);
+  opacity: 0.96;
+}
+
+.contact-pull__layer--black {
+  z-index: 3;
+  right: -8vw;
+  width: 48vw;
+  background: linear-gradient(90deg, rgba(64, 14, 5, 0.72), #080808 58%);
+  filter: blur(10px);
+}
+
+.contact-pull__grain {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 3px 3px;
+  mix-blend-mode: soft-light;
+}
+
+@media (max-width: 900px), (prefers-reduced-motion: reduce) {
+  .contact-pull {
+    display: none;
+  }
+}

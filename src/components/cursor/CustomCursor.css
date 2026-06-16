@@ -1,0 +1,112 @@
+.cursor-ring,
+.cursor-dot {
+  position: fixed;
+  z-index: 300;
+  display: none;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.cursor-ring {
+  top: -1.25rem;
+  left: -1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  mix-blend-mode: difference;
+  transition:
+    top 240ms ease,
+    left 240ms ease,
+    width 240ms ease,
+    height 240ms ease,
+    border-color 240ms ease,
+    background-color 240ms ease,
+    opacity 180ms ease;
+}
+
+.cursor-dot {
+  top: -0.18rem;
+  left: -0.18rem;
+  width: 0.36rem;
+  height: 0.36rem;
+  background: #fff;
+  mix-blend-mode: difference;
+  transition:
+    width 200ms ease,
+    height 200ms ease,
+    top 200ms ease,
+    left 200ms ease,
+    background-color 200ms ease,
+    opacity 180ms ease;
+}
+
+.cursor-layer--link .cursor-ring {
+  top: -1.75rem;
+  left: -1.75rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-color: transparent;
+  background: rgba(231, 83, 47, 0.18);
+}
+
+.cursor-layer--drag .cursor-ring {
+  top: -2.25rem;
+  left: -2.25rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-color: rgba(244, 244, 239, 0.9);
+  background: rgba(244, 244, 239, 0.12);
+  mix-blend-mode: difference;
+}
+
+.cursor-layer--drag .cursor-dot {
+  background: #f4f4ef;
+  mix-blend-mode: difference;
+}
+
+.cursor-layer--pressed .cursor-ring {
+  top: -0.8rem;
+  left: -0.8rem;
+  width: 1.6rem;
+  height: 1.6rem;
+  background: rgba(231, 83, 47, 0.25);
+}
+
+.cursor-layer--scrolling .cursor-ring {
+  animation: cursor-orbit 350ms ease;
+}
+
+.cursor-layer--hidden .cursor-ring,
+.cursor-layer--hidden .cursor-dot {
+  opacity: 0;
+}
+
+@keyframes cursor-orbit {
+  50% {
+    border-radius: 20%;
+    rotate: 45deg;
+    scale: 0.72;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  a,
+  .hero__visual,
+  .skill-item {
+    cursor: none;
+  }
+
+  .cursor-ring,
+  .cursor-dot {
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor-ring,
+  .cursor-dot {
+    display: none;
+  }
+}

@@ -1,0 +1,133 @@
+.contact {
+  --contact-panel: #10100f;
+  --contact-ink: #f4f4ef;
+  --contact-muted: #9b9589;
+  --contact-accent: #f4a51c;
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  overflow: hidden;
+  padding: clamp(5rem, 8vw, 7rem) clamp(1rem, 4vw, 4rem);
+  color: var(--contact-ink);
+  background: #050505;
+  isolation: isolate;
+}
+
+.contact::before,
+.contact::after {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  pointer-events: none;
+}
+
+.contact::before {
+  inset: 5vw;
+  border: 1px solid rgba(244, 244, 239, 0.08);
+  border-radius: 0.55rem;
+  background:
+    radial-gradient(circle at 13% 22%, rgba(244, 165, 28, 0.92) 0 0.38rem, transparent 0.42rem),
+    radial-gradient(circle at 18% 18%, rgba(244, 165, 28, 0.7) 0 0.16rem, transparent 0.2rem),
+    radial-gradient(circle at 24% 26%, rgba(244, 165, 28, 0.62) 0 0.24rem, transparent 0.28rem),
+    radial-gradient(circle at 77% 18%, rgba(244, 165, 28, 0.78) 0 0.32rem, transparent 0.36rem),
+    radial-gradient(circle at 82% 26%, rgba(244, 165, 28, 0.5) 0 0.13rem, transparent 0.16rem),
+    radial-gradient(circle at 71% 74%, rgba(244, 165, 28, 0.82) 0 0.44rem, transparent 0.48rem),
+    radial-gradient(circle at 77% 70%, rgba(244, 165, 28, 0.52) 0 0.18rem, transparent 0.22rem),
+    radial-gradient(circle at 28% 82%, rgba(244, 165, 28, 0.68) 0 0.26rem, transparent 0.3rem),
+    radial-gradient(circle at 35% 77%, rgba(244, 165, 28, 0.42) 0 0.12rem, transparent 0.15rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+    var(--contact-panel);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.42);
+}
+
+.contact::after {
+  top: 9%;
+  right: 11%;
+  width: min(22vw, 16rem);
+  aspect-ratio: 1;
+  border-radius: 48% 52% 45% 55%;
+  background: rgba(244, 165, 28, 0.13);
+  filter: blur(0.2rem);
+  transform: rotate(-18deg);
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: min(100%, 72rem);
+  gap: clamp(2.4rem, 6vw, 5.5rem);
+}
+
+.contact h2 {
+  max-width: 11ch;
+  margin: 0;
+  font-size: clamp(4.5rem, 13vw, 12rem);
+  font-weight: 500;
+  line-height: 0.78;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+}
+
+.contact__actions {
+  display: flex;
+  width: min(100%, 58rem);
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contact__action {
+  display: inline-grid;
+  min-height: 3.2rem;
+  place-items: center;
+  border: 1px solid rgba(244, 244, 239, 0.2);
+  border-radius: 999rem;
+  padding: 0.9rem 1.25rem;
+  color: inherit;
+  background: rgba(244, 244, 239, 0.06);
+  font: inherit;
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact__action:hover,
+.contact__action:focus-visible {
+  border-color: var(--contact-accent);
+  color: #080808;
+  background: var(--contact-accent);
+  transform: translateY(-0.18rem);
+}
+
+.contact__action--back {
+  color: var(--contact-muted);
+}
+
+@media (max-width: 760px) {
+  .contact {
+    place-items: end start;
+  }
+
+  .contact::before {
+    inset: 4rem 1rem 1rem;
+  }
+
+  .contact__actions {
+    display: grid;
+  }
+
+  .contact__action {
+    justify-content: start;
+    width: 100%;
+    border-radius: 0.45rem;
+  }
+}

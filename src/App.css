@@ -1,0 +1,93 @@
+.page-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 480;
+  display: grid;
+  place-content: center;
+  overflow: hidden;
+  color: #f4f4ef;
+  background:
+    radial-gradient(circle at 72% 28%, rgba(255, 176, 0, 0.16), transparent 22%),
+    #080808;
+  pointer-events: all;
+}
+
+.page-gate--entering {
+  animation: gate-enter 620ms both cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.page-gate--leaving {
+  animation: gate-leave 700ms both cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.page-gate span,
+.page-gate strong {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.page-gate span {
+  margin-bottom: 1rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.page-gate strong {
+  max-width: 90vw;
+  font-size: clamp(3.5rem, 10vw, 10rem);
+  font-weight: 500;
+  line-height: 0.8;
+  letter-spacing: -0.085em;
+}
+
+.page-gate__strip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 130vw;
+  height: clamp(0.5rem, 1.2vw, 1rem);
+  background:
+    radial-gradient(circle at 14% 50%, rgba(255, 255, 255, 0.38), transparent 8%),
+    linear-gradient(90deg, rgba(255, 84, 45, 0), #ffb000 24%, #ff542d 62%, rgba(255, 84, 45, 0));
+  filter: blur(0.5px);
+  transform: translate(-50%, -50%) rotate(-7deg);
+  transform-origin: center;
+  animation: gate-strip 760ms both cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes gate-enter {
+  from {
+    clip-path: inset(100% 0 0);
+  }
+  to {
+    clip-path: inset(0);
+  }
+}
+
+@keyframes gate-leave {
+  from {
+    clip-path: inset(0);
+  }
+  to {
+    clip-path: inset(0 0 100%);
+  }
+}
+
+@keyframes gate-strip {
+  from {
+    transform: translate(-50%, -50%) rotate(-7deg) scaleX(0);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(-7deg) scaleX(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-gate--entering,
+  .page-gate--leaving {
+    animation-duration: 1ms;
+  }
+}
