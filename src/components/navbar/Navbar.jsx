@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 
 const navLinks = [
@@ -8,8 +9,16 @@ const navLinks = [
 ];
 
 function Navbar({ currentPath = "/", onNavigate }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("menu-active", menuOpen);
+    return () => document.body.classList.remove("menu-active");
+  }, [menuOpen]);
+
   const handleNavigate = (event, href) => {
     event.preventDefault();
+    setMenuOpen(false);
     onNavigate(href);
   };
 
@@ -46,6 +55,40 @@ function Navbar({ currentPath = "/", onNavigate }) {
           LinkedIn
         </a>
         <a href="mailto:gregorykago@gmail.com">Email</a>
+      </div>
+
+      <button
+        className="navbar__menu-button"
+        type="button"
+        aria-expanded={menuOpen}
+        aria-controls="mobile-menu"
+        onClick={() => setMenuOpen((open) => !open)}
+      >
+        {menuOpen ? "Close" : "Menu"}
+      </button>
+
+      <div
+        className={menuOpen ? "mobile-menu is-open" : "mobile-menu"}
+        id="mobile-menu"
+        aria-hidden={!menuOpen}
+      >
+        <div className="mobile-menu__inner">
+          <p>Navigation</p>
+          <div className="mobile-menu__links">
+            <a href="/" onClick={(event) => handleNavigate(event, "/")}>
+              Home
+            </a>
+            {navLinks.map(([label, href]) => (
+              <a href={href} onClick={(event) => handleNavigate(event, href)} key={href}>
+                {label.replace(",", "")}
+              </a>
+            ))}
+          </div>
+          <div className="mobile-menu__footer">
+            <a href="mailto:gregorykago@gmail.com">gregorykago@gmail.com</a>
+            <span>Nairobi / Portfolio</span>
+          </div>
+        </div>
       </div>
     </nav>
   );
