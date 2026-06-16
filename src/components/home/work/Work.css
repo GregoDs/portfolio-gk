@@ -285,7 +285,7 @@
   .work {
     height: auto;
     min-height: 100svh;
-    padding: 7rem 1rem 5rem;
+    padding: 6.5rem 1rem 4.5rem;
     overflow: visible;
   }
 
@@ -302,57 +302,94 @@
   }
 
   .work__heading h2 {
-    font-size: clamp(4rem, 18vw, 7rem);
+    max-width: 8ch;
+    margin-top: 1.4rem;
+    font-size: clamp(3rem, 13.5vw, 5.4rem);
+  }
+
+  .work__heading > p {
+    max-width: 16rem;
+    margin-top: 1.2rem;
+    font-size: 0.67rem;
   }
 
   .work__projects {
     display: grid;
-    gap: 5rem;
-    margin-top: 5rem;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-top: 3.4rem;
   }
 
   .work-card--flexpay,
   .work-card--promoter {
-    width: min(78vw, 24rem);
+    width: min(62vw, 17.5rem);
   }
 
   .work-card--promoter {
+    justify-self: center;
+  }
+
+  .work-card--flexpay {
+    justify-self: start;
+  }
+
+  .work-card--leerand {
+    width: min(100%, 26rem);
     justify-self: end;
   }
 
   .work-card__visual--phone {
     height: auto;
     aspect-ratio: 9 / 19.5;
-    border-width: 0.42rem;
-    border-radius: 2.7rem;
+    border-width: 0.34rem;
+    border-radius: 2.2rem;
+    box-shadow:
+      0 1.1rem 2rem rgba(8, 8, 8, 0.14),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.14);
   }
 
   .work-card__visual--phone img {
-    border-radius: 2.25rem;
+    border-radius: 1.85rem;
   }
 
   .work-card__visual--browser {
     height: auto;
     aspect-ratio: 2910 / 1666;
+    border-radius: 0.32rem;
+    box-shadow: 0 1rem 2rem rgba(8, 8, 8, 0.12);
+  }
+
+  .work-card__open {
+    width: 1.9rem;
+    height: 1.9rem;
+    opacity: 1;
+    transform: scale(1);
   }
 
   .work-card__meta h3 {
-    font-size: clamp(2rem, 9vw, 3.5rem);
+    font-size: clamp(1.55rem, 7vw, 2.55rem);
   }
 
   .work-card__meta p {
-    font-size: 0.65rem;
+    max-width: 18rem;
+    font-size: 0.6rem;
+  }
+
+  .work-card__meta {
+    padding-top: 0.7rem;
+    margin-top: 0.7rem;
   }
 
   .work__cta-wrap {
     display: grid;
-    margin-top: 7rem;
+    margin-top: 4.5rem;
     place-items: center;
   }
 
   .work__cta {
-    width: 11rem;
-    height: 11rem;
+    width: 8.5rem;
+    height: 8.5rem;
+    font-size: 0.68rem;
   }
 
   .work__arrow--one {
@@ -366,5 +403,20 @@
     right: calc(50% + 3rem);
     left: auto;
     transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .work-card--flexpay,
+  .work-card--promoter {
+    width: min(58vw, 15.5rem);
+  }
+
+  .work-card--leerand {
+    width: min(94vw, 23rem);
+  }
+
+  .work__projects {
+    gap: 2.6rem;
   }
 }

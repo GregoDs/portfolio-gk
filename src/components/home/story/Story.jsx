@@ -62,6 +62,18 @@ function Story() {
         ))}
       </motion.div>
 
+      <div className="story-rocket" aria-hidden="true">
+        <span className="story-rocket__path" />
+        <span className="story-rocket__trail story-rocket__trail--one" />
+        <span className="story-rocket__trail story-rocket__trail--two" />
+        <span className="story-rocket__body">
+          <i className="story-rocket__window" />
+          <i className="story-rocket__fin story-rocket__fin--left" />
+          <i className="story-rocket__fin story-rocket__fin--right" />
+          <i className="story-rocket__flame" />
+        </span>
+      </div>
+
       <motion.a
         className="story__cta"
         href="/about"

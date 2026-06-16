@@ -86,8 +86,21 @@
 @media (max-width: 760px) {
   .navbar {
     grid-template-columns: 1fr auto;
-    padding: 1.1rem 1rem;
+    width: calc(100% - 1rem);
+    margin: 0.5rem;
+    border: 1px solid rgba(244, 244, 239, 0.16);
+    border-radius: 999rem;
+    padding: 0.78rem 0.9rem;
+    color: #f4f4ef;
+    background: rgba(8, 8, 8, 0.78);
+    box-shadow: 0 0.9rem 2rem rgba(8, 8, 8, 0.18);
+    backdrop-filter: blur(14px);
     mix-blend-mode: normal;
+  }
+
+  .navbar__logo,
+  .navbar__menu-button {
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
   }
 
   .navbar__links {
