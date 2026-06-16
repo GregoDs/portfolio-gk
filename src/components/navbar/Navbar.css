@@ -72,10 +72,10 @@
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 21;
   display: none;
-  color: #f4f4ef;
-  background: #080808;
+  color: #080808;
+  background: #f4f4ef;
   pointer-events: none;
 }
 
@@ -86,21 +86,20 @@
 @media (max-width: 760px) {
   .navbar {
     grid-template-columns: 1fr auto;
-    width: calc(100% - 1rem);
-    margin: 0.5rem;
-    border: 1px solid rgba(244, 244, 239, 0.16);
-    border-radius: 999rem;
-    padding: 0.78rem 0.9rem;
-    color: #f4f4ef;
-    background: rgba(8, 8, 8, 0.78);
-    box-shadow: 0 0.9rem 2rem rgba(8, 8, 8, 0.18);
-    backdrop-filter: blur(14px);
+    padding: 1.1rem 1rem;
+    color: #080808;
+    background: transparent;
     mix-blend-mode: normal;
   }
 
   .navbar__logo,
   .navbar__menu-button {
-    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+    position: relative;
+    z-index: 22;
+  }
+
+  .navbar:has(.mobile-menu.is-open) {
+    color: #080808;
   }
 
   .navbar__links {
@@ -150,7 +149,7 @@
 
   .mobile-menu__inner > p,
   .mobile-menu__footer {
-    color: rgba(244, 244, 239, 0.5);
+    color: rgba(8, 8, 8, 0.48);
     font-size: 0.68rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -165,7 +164,7 @@
   .mobile-menu__links a {
     display: block;
     width: fit-content;
-    color: #f4f4ef;
+    color: #080808;
     font-size: clamp(3.6rem, 17vw, 6.5rem);
     font-weight: 500;
     line-height: 0.8;
@@ -203,12 +202,12 @@
   .mobile-menu__footer {
     display: grid;
     gap: 0.6rem;
-    border-top: 1px solid rgba(244, 244, 239, 0.2);
+    border-top: 1px solid rgba(8, 8, 8, 0.18);
     padding-top: 1rem;
   }
 
   .mobile-menu__footer a {
-    color: #f4f4ef;
+    color: #080808;
     text-decoration: none;
   }
 }
